@@ -37,7 +37,18 @@ df["category"] = category
 # Read all files
 # --------------------------------------------------------------
 
+acc_df = pd.DataFrame()
+gyr_df = pd.DataFrame()
 
+acc_set = 1
+gyr_set = 1
+
+for f in files
+    participant = f.split("-")[0].replace(data_path, "")
+    label = f.split("-")[1]
+    category = f.split("-")[2].strip("123")
+    
+    print(category)
 
 # --------------------------------------------------------------
 # Working with datetimes
