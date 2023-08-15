@@ -7,7 +7,7 @@ from glob import glob
 
 single_file_acc = pd.read_csv("../../data/raw/MetaMotion/A-bench-heavy2-rpe8_MetaWear_2019-01-11T16.10.08.270_C42732BE255C_Accelerometer_12.500Hz_1.4.4.csv")
 single_file_gyr = pd.read_csv("../../data/raw/MetaMotion/A-bench-heavy2-rpe8_MetaWear_2019-01-11T16.10.08.270_C42732BE255C_Gyroscope_25.000Hz_1.4.4.csv")
-print(single_file_gyr)
+print(single_file_acc)
 # --------------------------------------------------------------
 # List all data in data/raw/MetaMotion
 # --------------------------------------------------------------
@@ -45,6 +45,7 @@ print(acc_df)
 acc_set = 1
 gyr_set = 1
 
+
 for f in files:
 
     participant = f.split("-")[0].replace(data_path, "")
@@ -75,17 +76,20 @@ acc_df.info()
 
 pd.to_datetime(df["epoch (ms)"], unit="ms")
 
-acc_df.index = pd.to_datetime(acc_df["epoch(ms)"], unit="ms")
-gyr_df.index = pd.to_datetime(gyr_df["epoch(ms)"], unit="ms")
+acc_df.index = pd.to_datetime(acc_df["epoch (ms)"], unit="ms")
+gyr_df.index = pd.to_datetime(gyr_df["epoch (ms)"], unit="ms")
 
 del acc_df["epoch (ms)"]
 del acc_df["time (01:00)"]
-del acc_df["epoch (s)"]
+del acc_df["epoch(s)"]
 
 
 del gyr_df["epoch (ms)"]
 del gyr_df["time (01:00)"]
 del gyr_df["epoch (s)"]
+
+print(acc_df)
+print(df.columns)
 # --------------------------------------------------------------
 # Turn into function
 # --------------------------------------------------------------
@@ -113,4 +117,6 @@ del gyr_df["epoch (s)"]
 # --------------------------------------------------------------
 # Export dataset
 # --------------------------------------------------------------
+
+
 
