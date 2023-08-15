@@ -22,11 +22,13 @@ len(files)
 data_path = "../../data/raw/MetaMotion/"
 f = files[0]
 
+
 participant = f.split("-")[0].replace(data_path, "")
 label = f.split("-")[1]
 category = f.split("-")[2].strip("123").strip("_MetaWear_2019")
 
 df =pd.read_csv(f)
+
 
 df["participant"] = participant
 df["label"] = label
@@ -78,18 +80,19 @@ pd.to_datetime(df["epoch (ms)"], unit="ms")
 
 acc_df.index = pd.to_datetime(acc_df["epoch (ms)"], unit="ms")
 gyr_df.index = pd.to_datetime(gyr_df["epoch (ms)"], unit="ms")
-
+# print(acc_df["x-axis (g)"])
 del acc_df["epoch (ms)"]
 del acc_df["time (01:00)"]
-del acc_df["epoch(s)"]
+del acc_df["elapsed (s)"]
+# del acc_df["epoch (s)"]
 
 
 del gyr_df["epoch (ms)"]
 del gyr_df["time (01:00)"]
-del gyr_df["epoch (s)"]
+del gyr_df["elapsed (s)"]
+# del gyr_df["epoch (s)"]
 
-print(acc_df)
-print(df.columns)
+
 # --------------------------------------------------------------
 # Turn into function
 # --------------------------------------------------------------
