@@ -76,7 +76,7 @@ acc_df.info()
 pd.to_datetime(df["epoch (ms)"], unit="ms")
 
 acc_df.index = pd.to_datetime(acc_df["epoch(ms)"], unit="ms")
-gyr_df.index = pd.to_datetime(gry_df["epoch(ms)"], unit="ms")
+gyr_df.index = pd.to_datetime(gyr_df["epoch(ms)"], unit="ms")
 
 del acc_df["epoch (ms)"]
 del acc_df["time (01:00)"]
